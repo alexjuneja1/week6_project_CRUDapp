@@ -1,3 +1,4 @@
 class Group < ActiveRecord::Base
-  belongs_to :userID
+  belongs_to :users
+  has_many :attenances 
 end
