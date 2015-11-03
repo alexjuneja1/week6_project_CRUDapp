@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'groups/index'
+  root 'groups#index'
 
   get 'groups/show'
 
@@ -14,13 +14,13 @@ Rails.application.routes.draw do
 
   get 'groups/destroy'
 
-  get 'users/index'
+  get 'users' => 'users#index'
 
   get 'users/show'
 
   get 'users/new'
 
-  get 'users/create'
+  post 'users' => 'users#create'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
