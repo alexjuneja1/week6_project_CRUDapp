@@ -1,11 +1,14 @@
 class GroupsController < ApplicationController
   def index
+    @groups = Group.all
   end
 
   def show
+    @group = Group.find(params[:id])
   end
 
   def new
+
   end
 
   def exit
@@ -19,4 +22,13 @@ class GroupsController < ApplicationController
 
   def destroy
   end
+
+  private
+    def set_group
+      @group = Group.find(params[:id])
+    end
+
+    def group_params
+      params.require(:group).permit(:topic, :date, :location)
+    end
 end
