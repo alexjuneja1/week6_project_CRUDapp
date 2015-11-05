@@ -20,9 +20,11 @@ Rails.application.routes.draw do
   #
   # post 'users' => 'users#create'
 
+  root 'groups#index'
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  delete 'logout' => 'sessions#destroy', as: :sessions
 
   resources :groups
   resources :users

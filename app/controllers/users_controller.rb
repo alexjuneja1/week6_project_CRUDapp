@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    # localhost:3000/users/8 -> params[:id] = 8
     @user = User.find(params[:id])
+
   end
 
   def new
@@ -23,4 +25,5 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :cellphone)
+  end
 end
