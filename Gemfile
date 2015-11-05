@@ -31,6 +31,10 @@ gem 'bootstrap-sass'
 
 # Use Devise
 gem 'devise'
+
+# Use DateTimePicker
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
