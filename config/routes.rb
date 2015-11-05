@@ -1,32 +1,31 @@
 Rails.application.routes.draw do
 
-  root 'groups#index'
+  # root 'groups#index'
+  #
+  # get 'groups' => 'groups#index'
+  #
+  # get 'groups/new' => 'groups#new', as: :new_group
+  #
+  # post 'groups' => 'groups#create'
+  #
+  # get 'groups/:id' => 'groups#show'
 
-  get 'groups/show'
 
-  get 'groups/new'
-
-  get 'groups/exit'
-
-  get 'groups/create'
-
-  get 'groups/update'
-
-  get 'groups/destroy'
-
-  get 'users' => 'users#index'
-
-  get 'users/show'
-
-  get 'users/new'
-
-  post 'users' => 'users#create'
+#user routes
+  # get 'users' => 'users#index'
+  #
+  # get 'users/:id' => 'users#show'
+  #
+  # get 'users/new'
+  #
+  # post 'users' => 'users#create'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
   resources :groups
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
