@@ -15,9 +15,11 @@
     </div>
   <% end %>
   <% if @user %>
-    <%= link_to "Edit Profile", edit_user_path(@user) %>
+    <%= link_to "Home", root_path %> |
+    <%= link_to "View Profile", user_path(@user) %> |
+    <%= link_to "Edit Profile", edit_user_path(@user) %> |
     <%= link_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: 'Are you sure?'} %>
-    <p> Welcome back, <%= @user.username %>! </p>
+    <p> Logged in as <%= @user.username %> </p>
     <%= link_to 'Logout', sessions_path, method: :delete, data: {confirm: 'Are you sure?'} %>
   <% else %>
     <%= link_to 'Please login!', login_path %>

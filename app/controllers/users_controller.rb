@@ -5,30 +5,30 @@ class UsersController < ApplicationController
 
   def show
     # localhost:3000/users/8 -> params[:id] = 8
-    @user = User.find(params[:id])
+    @current_user = User.find(params[:id])
 
   end
 
   def new
-    @user = User.new
+    @current_user = User.new
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to user_path(@user)
+    @current_user = User.new(user_params)
+    if @current_user.save
+      redirect_to user_path(@current_user)
     else
       render :new
     end
   end
 
   def edit
-    @user = User.find(params[:id])
+    @current_user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
+    @current_user = User.find(params[:id])
+    if @current_user.update(user_params)
       redirect_to '/'
     else
       render 'edit'
@@ -36,8 +36,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    if @user.destroy
+    @current_user = User.find(params[:id])
+    if @current_user.destroy
       redirect_to '/'
     else
       redirect_to 'show'
