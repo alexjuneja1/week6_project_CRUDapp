@@ -1,5 +1,18 @@
 <p id="notice"><%= notice %></p>
+<style>
+table.hl {
+  margin: 2em 0;
+  td.ln { text-align: right; }
+}
 
+li {
+  font: {
+    family: serif;
+    weight: bold;
+    size: 1.2em;
+  }
+}
+</style>
 <h1>Study Session List</h1>
 
 <table class="table table-condensed">
@@ -28,12 +41,4 @@
 
 <br>
 
-<%= button_to('New Study Session', new_group_path()) %>
-
-<% if @user == current_user %>
-  <%= button_to('New Study Session', new_group_path()) %>
-  <%= link_to "Edit Profile", edit_user_path(@user) %>
-  <%= link_to "Delete Profile", destroy_user_path(@user) %>
-<%end%>
-<%= link_to "Edit Profile", edit_user_path(@user) %>
-<%= link_to "Delete Profile", destroy_user_path(@user) %>
+<%= button_to('New Study Session', new_group_path()) if @user %>

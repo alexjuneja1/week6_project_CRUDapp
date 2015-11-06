@@ -1,28 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is designed to have CRUD functionality as well as be applicable to the class as a whole.
 
-Things you may want to cover:
+Not only was I unable to reach MVP, I was unable to actually reach anything of value.
 
-* Ruby version
+The app was supposed to be able take study groups and appointments and post them on the page, allowing classmates & instructors to view them and choose whether or not to join or unjoin.
 
-* System dependencies
+The app has CRUD functionality in the sense that you can create Study Sessions, read them, delete them, and update them. The exact same applies for Users.
 
-* Configuration
+Backlog:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+As a developer, I want the user to be able to join and leave groups with a mere click of a button. The button continuously broke and couldn't be routed appropriately despite continuous overhaul.
+The user should also be able to know when something in the group changes or if it has been cancelled. Therefore, they would receive an e-mail regarding the group.

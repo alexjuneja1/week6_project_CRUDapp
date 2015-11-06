@@ -19,8 +19,14 @@
   <strong>Time:</strong>
   <%= @group.time %>
 </p>
-
-<%= link_to 'Join Group', join_path, method: :get %> |
-<%= link_to 'Leave Group', leave_path(@attending), method: :get %> |
+<p>
+  <% @group.attendances.each do |attendance| %>
+    <b>Attendee:</b> <%= attendance.user.username %><br>
+  <% end %>
+</p>
+<% if @user %>
+  <%= link_to 'Join Group', join_path, method: :get %> |
+  <%= link_to 'Leave Group', leave_path(@attending), method: :get %> |
+<% end %>
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

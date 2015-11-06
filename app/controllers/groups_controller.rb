@@ -51,19 +51,23 @@ class GroupsController < ApplicationController
   end
 
   def join_group
-    @user = current_user
     @group = Group.find(params[:id])
-    @attendance = @user.attendances.build(:group_id => @group.id)
-    @attendance.save
-     flash.now[:notice] = "You have successfully joined."
-    redirect_to group_path(@group)
+    unless Attendance.where(:group_id => @group.id, :user_id => @user.id).first
+      Attendance.create(:user_id => @user.id, :group_id => @group.id)
+      flash[:notice] = "You have successfully joined."
+      redirect_to group_path(@group)
+    else
+      flash[:notice] = "You have already previously joined."
+      redirect_to group_path(@group)
+    end
   end
 
   def leave_group
-    @user = current_user
     @group = Group.find(params[:id])
-    @attendance = @group.attendances.where(:user_id == @user.id)
+    @attendance = @group.attendances.where(:user_id == @user.id).first
     @attendance.destroy
+    flash[:notice] = "You have successfully left."
+    redirect_to group_path(@group)
   end
 
   private
