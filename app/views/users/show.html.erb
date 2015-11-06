@@ -3,3 +3,7 @@
 Name: <%= @user.name %><br>
 Email: <%= @user.email %><br>
 Phone Number: <%= @user.cellphone%><br>
+
+<% if @user == current_user %>
+  <%= link_to "Edit Profile", edit_user_path(@user) %>
+<%end%>

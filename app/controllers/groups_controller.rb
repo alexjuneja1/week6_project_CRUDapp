@@ -1,10 +1,19 @@
 class GroupsController < ApplicationController
+
   def index
     @groups = Group.all
   end
 
   def show
     @group = Group.find(params[:id])
+    @attendances = @group.attendances.all
+    #@attending = @group.attendances.where(:user_id == current_user.id)
+    if @group.attendances.where(:user_id == current_user.id) == current_user
+      @attending = current_user.id
+    else
+      @current_user_is_attending = false;
+      @attending = current_user.id
+    end
   end
 
   def new
@@ -35,6 +44,26 @@ class GroupsController < ApplicationController
   end
 
   def destroy
+    @group = Group.find(params[:id])
+    if @group.destroy
+      redirect_to root_path
+    end
+  end
+
+  def join_group
+    @user = current_user
+    @group = Group.find(params[:id])
+    @attendance = @user.attendances.build(:group_id => @group.id)
+    @attendance.save
+     flash.now[:notice] = "You have successfully joined."
+    redirect_to group_path(@group)
+  end
+
+  def leave_group
+    @user = current_user
+    @group = Group.find(params[:id])
+    @attendance = @group.attendances.where(:user_id == @user.id)
+    @attendance.destroy
   end
 
   private

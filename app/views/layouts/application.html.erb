@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>StudyGroupApp</title>
+  <title>Study Group App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -15,7 +15,7 @@
   <% end %>
 
   <% if current_user %>
-  <p> hello, <%= current_user.email %> </p>
+  <p> hello, <%= current_user.username %> </p>
   <%= link_to 'Logout', sessions_path, method: :delete, data: {confirm: 'Are you sure?'} %>
 <% else %>
   <%= link_to 'Please login', login_path %>

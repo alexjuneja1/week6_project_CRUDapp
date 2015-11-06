@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105190159) do
+ActiveRecord::Schema.define(version: 20151106033023) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151105190159) do
     t.integer  "userID_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "time"
   end
 
   add_index "groups", ["userID_id"], name: "index_groups_on_userID_id"
@@ -37,11 +38,11 @@ ActiveRecord::Schema.define(version: 20151105190159) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "cellphone"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.text     "username"
+    t.string   "cellphone"
   end
 
 end

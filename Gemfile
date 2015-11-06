@@ -31,8 +31,12 @@ gem 'bootstrap-sass'
 
 # Use Devise
 gem 'devise'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+# Use Simple_Form
+gem 'simple_form'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
