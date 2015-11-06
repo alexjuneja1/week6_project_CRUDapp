@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def create
     @current_user = User.new(user_params)
     if @current_user.save
+      session[:user_id] = @current_user.id
       redirect_to user_path(@current_user)
     else
       render :new
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
   def destroy
     @current_user = User.find(params[:id])
     if @current_user.destroy
+      session[:user_id] = nil
       redirect_to '/'
     else
       redirect_to 'show'
@@ -46,6 +48,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :name, :email, :password, :cellphone)
+    params.require(:user).permit(:username, :name, :email, :password, :cellphone, :password_confirmation)
   end
 end
